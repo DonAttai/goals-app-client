@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { removeGoal } from "../features/goals/goalSlice";
 import { Card, Button } from "react-bootstrap";
 
-function Goal({ _id, text, createdAt }) {
+function GoalItem({ _id, text, createdAt }) {
   const dispatch = useDispatch();
   return (
     <Card className="my-1 mx-1" border="secondary" bg="light">
@@ -17,7 +17,7 @@ function Goal({ _id, text, createdAt }) {
           </Button>
         </span>
         <Card.Text className="text-dark">
-          <p className="my-2 text-center fw-bold">{text}</p>
+          <span className="my-2 text-center fw-bold">{text}</span>
         </Card.Text>
         <span className="d-flex justify-content-center">
           <small className="text-dark text-muted">
@@ -29,4 +29,4 @@ function Goal({ _id, text, createdAt }) {
   );
 }
 
-export default Goal;
+export default GoalItem;
