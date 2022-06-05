@@ -20,27 +20,27 @@ function GoalList() {
     };
   }, [isError, dispatch, message]);
 
-  if (goals.length < 1) {
-    return <h3 className="text-dark">You have not set any goal</h3>;
-  }
-
   if (isLoading) {
     return <Loader />;
   }
 
-  return (
-    <section className="text-dark">
-      <Container>
-        <Row>
-          {goals.map((goal) => (
-            <Col md={4} key={goal._id}>
-              <GoalItem {...goal} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
-  );
+  <section>
+    {goals.legnth > 0 ? (
+      <div className="text-dark">
+        <Container>
+          <Row>
+            {goals.map((goal) => (
+              <Col md={4} key={goal._id}>
+                <GoalItem {...goal} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+    ) : (
+      <h3 className="text-dark">You have not set any goal</h3>
+    )}
+  </section>;
 }
 
 export default GoalList;
