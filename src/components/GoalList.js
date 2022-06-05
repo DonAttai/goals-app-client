@@ -25,15 +25,15 @@ function GoalList() {
   }
 
   <section>
-    {goals.legnth > 0 ? (
+    {goals.length > 0 ? (
       <div className="text-dark">
         <Container>
           <Row>
-            {goals.map((goal) => (
-              <Col md={4} key={goal._id}>
-                <GoalItem {...goal} />
-              </Col>
-            ))}
+            <Col md={4}>
+              {goals.map((goal) => (
+                <GoalItem key={goal._id} {...goal} />
+              ))}
+            </Col>
           </Row>
         </Container>
       </div>
