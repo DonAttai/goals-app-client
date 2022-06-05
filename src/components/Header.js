@@ -1,10 +1,10 @@
-import Button from "react-bootstrap/button";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 
 import { FaSignInAlt, FaUser, FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 function Header() {
   const { user } = useSelector((state) => state.auth);
