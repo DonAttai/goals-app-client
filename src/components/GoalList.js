@@ -23,24 +23,23 @@ function GoalList() {
   if (isLoading) {
     return <Loader />;
   }
+  if (goals.length < 1) {
+    return <h3 className="text-dark">You have not set any goal</h3>;
+  }
 
-  <section>
-    {goals.length > 0 ? (
-      <div className="text-dark">
-        <Container>
-          <Row>
-            <Col md={4}>
-              {goals.map((goal) => (
-                <GoalItem key={goal._id} {...goal} />
-              ))}
+  return (
+    <section className="text-dark">
+      <Container>
+        <Row>
+          {goals.map((goal) => (
+            <Col md={4} key={goal._id}>
+              <GoalItem {...goal} />
             </Col>
-          </Row>
-        </Container>
-      </div>
-    ) : (
-      <h3 className="text-dark">You have not set any goal</h3>
-    )}
-  </section>;
+          ))}
+        </Row>
+      </Container>
+    </section>
+  );
 }
 
 export default GoalList;
