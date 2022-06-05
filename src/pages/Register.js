@@ -70,7 +70,7 @@ function Register() {
       <Row className="justify-content-center">
         <Col md={4}>
           {isError && message}
-          <Card>
+          <Card border="primary">
             <Card.Header>
               {" "}
               <h5 className="text-dark">

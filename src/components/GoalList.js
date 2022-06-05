@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getGoals, reset } from "../features/goals/goalSlice";
 import Goal from "./GoalItem";
@@ -33,7 +33,9 @@ function GoalList() {
       <Container>
         <Row>
           {goals.map((goal) => (
-            <Goal key={goal._id} {...goal} />
+            <Col md={4}>
+              <Goal key={goal._id} {...goal} />
+            </Col>
           ))}
         </Row>
       </Container>

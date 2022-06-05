@@ -65,7 +65,7 @@ function Login() {
     <section className="mt-5">
       <Row className="justify-content-center align-items-center ">
         <Col md={4}>
-          <Card>
+          <Card border="primary">
             <Card.Header>
               <h5 className="text-dark">
                 <FaSignInAlt />
