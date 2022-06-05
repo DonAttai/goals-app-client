@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:8000/api/users";
+const URL = "https://attai-goals-app.herokuapp.com/api/users";
 const register = async (userData) => {
   const response = await axios.post(URL + "/register", userData);
 
