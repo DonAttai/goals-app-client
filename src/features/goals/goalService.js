@@ -1,6 +1,6 @@
 import axios from "axios";
-const URL = "http://localhost:8000/api/goals";
-// const URL = "https://attai-goals-app.herokuapp.com/api/goals";
+const URL = "https://attai-goals-app.herokuapp.com/api/goals";
+// const URL = "http://localhost:8000/api/goals";
 
 // Add Goal
 const addGoal = async (goal, token) => {
