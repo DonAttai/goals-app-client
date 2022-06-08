@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getGoals, reset } from "../features/goals/goalSlice";
 import GoalItem from "./GoalItem";
@@ -23,23 +22,18 @@ function GoalList() {
   if (isLoading) {
     return <Loader />;
   }
-  if (goals.length < 1) {
-    return <h3 className="text-dark">You have not set any goal</h3>;
+
+  if (goals.length > 0) {
+    return (
+      <div className="text-dark goals">
+        {goals.map((goal) => (
+          <GoalItem key={goal._id} {...goal} />
+        ))}
+      </div>
+    );
   }
 
-  return (
-    <section className="text-dark">
-      <Container>
-        <Row>
-          {goals.map((goal) => (
-            <Col md={4} key={goal._id}>
-              <GoalItem {...goal} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
-  );
+  return <h3 className="text-dark">You have not set any goal</h3>;
 }
 
 export default GoalList;

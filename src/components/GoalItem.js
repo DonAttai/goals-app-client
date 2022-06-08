@@ -5,12 +5,12 @@ import { Card, Button } from "react-bootstrap";
 function GoalItem({ _id, text, createdAt }) {
   const dispatch = useDispatch();
   return (
-    <Card className="my-1 mx-1" border="secondary" bg="light">
+    <Card className="my-1" border="secondary" bg="light">
       <Card.Body>
-        <span className="d-flex flex-row-reverse">
+        <span className="d-flex flex-row-reverse ">
           <Button
             variant="danger"
-            className="btn btn-sm"
+            className="btn btn-sm p-1 m-0"
             onClick={() => dispatch(removeGoal(_id))}
           >
             x
