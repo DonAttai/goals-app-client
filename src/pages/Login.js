@@ -42,14 +42,14 @@ function Login() {
 
     if (email === "" || password === "") {
       toast.error("Enter all fields");
-    } else {
-      const userData = {
-        email,
-        password,
-      };
-      dispatch(login(userData));
-      navigate("/");
+      return;
     }
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(login(userData));
+    navigate("/");
 
     setFormData({
       email: "",

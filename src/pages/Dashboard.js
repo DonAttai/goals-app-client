@@ -45,7 +45,7 @@ function Dashboard() {
       <GoalForm />
 
       <section>
-        {goals.length > 0 ? (
+        {goals.length ? (
           <div className="text-dark goals">
             {goals.map((goal) => (
               <GoalItem key={goal._id} {...goal} />

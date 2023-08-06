@@ -1,29 +1,32 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addGoal } from "../features/goals/goalSlice";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 function GoalForm() {
-  const [text, setText] = useState("");
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(addGoal({ text }));
-
-    setText("");
+    const formData = new FormData(e.currentTarget);
+    const values = [...formData.values()];
+    if (values.includes("")) {
+      alert("Please, enter text");
+      return;
+    }
+    const data = Object.fromEntries(formData);
+    dispatch(addGoal(data));
+    e.currentTarget.reset();
   };
+
   return (
     <section>
       <Row className="justify-content-center mb-3">
         <Col md={4}>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={onSubmit}>
             <Form.Group className="mb-3" controld="email">
               <Form.Control
                 type="text"
                 name="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
                 placeholder="Add a goal..."
                 autoComplete="off"
               />

@@ -1,37 +1,20 @@
-import axios from "axios";
-const URL = "https://attai-goals-app.herokuapp.com/api/goals";
-// const URL = "http://localhost:8000/api/goals";
+import axios from "../../api/axios";
 
 // Add Goal
-const addGoal = async (goal, token) => {
-  const config = {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  };
-  const response = await axios.post(URL, goal, config);
+const addGoal = async (goal) => {
+  const response = await axios.post("/goals", goal);
   return response.data;
 };
 
 //Get user Goals
-const getGoals = async (token) => {
-  const config = {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  };
-  const response = await axios.get(URL, config);
+const getGoals = async () => {
+  const response = await axios.get("/goals");
   return response.data;
 };
 
 // Remove Goal
-const removeGoal = async (id, token) => {
-  const config = {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  };
-  const response = await axios.delete(URL + `/${id}`, config);
+const removeGoal = async (id) => {
+  const response = await axios.delete(`/goals/${id}`);
   return response.data;
 };
 

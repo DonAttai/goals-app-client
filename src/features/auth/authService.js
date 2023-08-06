@@ -1,14 +1,12 @@
-import axios from "axios";
+import axios from "../../api/axios";
 
-const URL = "https://attai-goals-app.herokuapp.com/api/users";
-// const URL = "http://locahost:8000/api/users";
 const register = async (userData) => {
-  const response = await axios.post(URL + "/register", userData);
+  const response = await axios.post("/users/register", userData);
 
   return response.data;
 };
 const login = async (userData) => {
-  const response = await axios.post(URL + "/login", userData);
+  const response = await axios.post("/users/login", userData);
   if (response.data) {
     localStorage.setItem("user", JSON.stringify(response.data));
   }
