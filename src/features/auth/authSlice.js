@@ -53,6 +53,10 @@ const authSlice = createSlice({
       state.isSuccess = false;
       state.message = "";
     },
+    logOut: (state) => {
+      state.user = null;
+      localStorage.removeItem("user");
+    },
   },
   extraReducers: {
     [register.pending]: (state) => {
